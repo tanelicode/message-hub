@@ -46,4 +46,13 @@ public class SmsMessageService {
 
         return smsMessageRepository.save(smsMessage);
     }
+
+    public SmsMessage failMessage(Long id) {
+        SmsMessage smsMessage = getMessageById(id);
+
+        smsMessage.setStatus(SmsStatus.FAILED);
+
+        return smsMessageRepository.save(smsMessage);
+    }
+
 }

@@ -37,4 +37,10 @@ public class SmsMessageController {
     public SmsMessage sendMessage(@PathVariable Long id) {
         return smsMessageService.sendMessage(id);
     }
+
+    @PutMapping("/{id}/fail")
+    public SmsMessage failMessage(@PathVariable Long id) {
+        return smsMessageService.failMessage(id);
+    }
+
 }
