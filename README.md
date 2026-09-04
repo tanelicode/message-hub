@@ -32,6 +32,78 @@ Im Mittelpunkt stehen Backend-Struktur, Datenbankanbindung, Validierung, Fehlerb
 
 ## API-Endpunkte
 
+## Lokales Setup
+
+### Voraussetzungen
+
+- Java 21
+- Docker Desktop
+- Git
+
+### Projekt starten mit Docker
+
+1. Repository klonen:
+
+```bash
+git clone https://github.com/tanelicode/message-hub.git
+cd message-hub
+```
+
+2. `.env` Datei aus Beispiel erstellen:
+
+```bash
+cp .env.example .env
+```
+
+Unter Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+3. Anwendung mit Docker starten:
+
+```bash
+docker compose up --build
+```
+
+4. Health Check öffnen:
+
+```text
+http://localhost:8080/api/health
+```
+
+5. Swagger UI öffnen:
+
+```text
+http://localhost:8080/swagger-ui/index.html
+```
+
+### Anwendung stoppen
+
+```bash
+docker compose down
+```
+
+## Tests ausführen
+
+Unter Windows PowerShell:
+
+```powershell
+.\mvnw.cmd test
+```
+
+Unter Linux/macOS:
+
+```bash
+./mvnw test
+```
+
+## Continuous Integration
+
+Das Projekt nutzt GitHub Actions.  
+Bei jedem Push auf den `main` Branch werden die Tests automatisch ausgeführt.
+
 ### Health Check
 
 ```http
